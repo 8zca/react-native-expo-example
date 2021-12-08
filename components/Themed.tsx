@@ -45,12 +45,3 @@ export function View(props: ViewProps) {
 
   return <DefaultView style={[{ backgroundColor }, style]} {...otherProps} />;
 }
-
-const TextInput = React.forwardRef((props: TextInputProps) => {
-  const { style, lightColor, darkColor, ...otherProps } = props;
-  const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'background');
-
-  return <DefaultTextInput style={[{ backgroundColor }, style]} {...otherProps} />;
-})
-
-export { TextInput }

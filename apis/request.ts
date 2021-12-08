@@ -1,9 +1,9 @@
-import querystring from "querystring";
+import querystring from "query-string";
 
 export type ApiOptions = {
   method: "GET" | "POST" | "DELETE" | "PUT" | "PATCH";
   body?: Record<string, unknown>;
-  query?: querystring.ParsedUrlQueryInput;
+  query?: Record<string, unknown>;
 };
 
 const request = async <T>(url: string, options: ApiOptions): Promise<T> => {

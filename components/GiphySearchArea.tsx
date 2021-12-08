@@ -1,17 +1,18 @@
 import * as WebBrowser from 'expo-web-browser';
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
 import { Button, StyleSheet, TextInput } from 'react-native';
-import { useRecoilState } from 'recoil'
+import { useSetRecoilState } from 'recoil'
 import { giphyQuery } from '@/state/giphy';
 
 import { MonoText } from './StyledText';
 import { View } from './Themed';
 
 export default function GiphySearchArea() {
-  const [q, setQ] = useRecoilState(giphyQuery)
-  const inputRef = useRef(null)
+  // TODO: useRefで取得する
+  const setQ = useSetRecoilState(giphyQuery)
+  const [q, setQuery] = useState('')
   const onPress = () => {
-    setQ((inputRef.current as any).value)
+    setQ(q)
   }
 
   return (
@@ -19,8 +20,9 @@ export default function GiphySearchArea() {
       <MonoText>Search keyword</MonoText>
       <View style={styles.search}>
         <TextInput
-          ref={inputRef}
+          onChangeText={setQuery}
           style={styles.textInput}
+          value={q}
         />
         <Button onPress={onPress} title='OK' />
       </View>
@@ -35,9 +37,11 @@ const styles = StyleSheet.create({
     marginBottom: 30
   },
   search: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    width: '100%'
   },
   textInput: {
-    backgroundColor: '#eee'
+    backgroundColor: '#eee',
+    flex: 1
   }
 });

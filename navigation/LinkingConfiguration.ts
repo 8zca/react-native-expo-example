@@ -20,9 +20,9 @@ const linking: LinkingOptions<RootStackParamList> = {
               GipySearch: 'one',
             },
           },
-          TabTwo: {
+          QRReader: {
             screens: {
-              TabTwoScreen: 'two',
+              QRReader: 'two',
             },
           },
         },
