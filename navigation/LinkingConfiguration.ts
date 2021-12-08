@@ -15,9 +15,9 @@ const linking: LinkingOptions<RootStackParamList> = {
     screens: {
       Root: {
         screens: {
-          TabOne: {
+          GiphySearch: {
             screens: {
-              TabOneScreen: 'one',
+              GipySearch: 'one',
             },
           },
           TabTwo: {
