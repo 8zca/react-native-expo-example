@@ -1,10 +1,12 @@
+import { GIPHY_API_KEY } from '@env'
+
 import request from './request'
 
 const SEARCH_URL = 'https://api.giphy.com/v1/gifs/search'
 
 export const search = async (q: string, limit: number, offset: number) => {
   const params = {
-    api_key: 'x4EXBZSOQ0D8eOWcdIHlAf17gqg78FBj',
+    api_key: GIPHY_API_KEY,
     limit,
     offset,
     q
